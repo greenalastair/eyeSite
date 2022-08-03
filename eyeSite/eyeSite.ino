@@ -1,7 +1,18 @@
-/*eyeSight
+/*eyeSight (By Alastair Green 2022)
+ 
+  OVERVIEW
   Save your eyes from screen fatigue following 20/20/20 rule.
   LED that turns on after 20 mins, press a button, it flashes for 20 seconds
   (time you should be looking away to 20 ft distance) then turns off (back to work).
+
+  WIRING
+  16mm baomin push button (latching type)
+  + to PIN 13 (for LED voltage)
+  - to GND
+  C to D7
+  NO to GND
+  NC is unconnected
+  
 */
 
 int buttonState = 1; //NOTE ON buttonState: pushed in is 0 (LOW) out is 1 (HIGH)
