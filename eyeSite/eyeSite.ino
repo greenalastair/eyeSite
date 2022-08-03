@@ -11,10 +11,11 @@ int flag = 0;
 
 int ledState = LOW;
 unsigned long previousMillis = 0;
-const long interval = 5000; // interval at which to turn on LED (milliseconds)
+const long interval = 300000; // interval at which to turn on LED (milliseconds)
 
 void setup() {
   Serial.begin(9600);
+  Serial.println("eyeSight timer starting");
   pinMode(buttonPin, INPUT_PULLUP);
   pinMode(LEDpin, OUTPUT);
 }
@@ -37,7 +38,7 @@ void loop() {
     Serial.println(buttonState);
     digitalWrite(LEDpin, LOW);   //once user presses button, turn off LED
     Serial.println("LED OFF");
-    delay(5000); //eye relief time (20 seconds)   
+    delay(20000); //eye relief time (20 seconds)   
     digitalWrite(LEDpin, HIGH); //LED comes back on to indicate end of eye strain break
     Serial.println("LED ON");
     flag = 2; //advance to next code block (flag 2)
