@@ -49,6 +49,12 @@ void loop() {
     }
   }
 
+  if (flag == 0 && buttonState == HIGH && ledState == HIGH) { //improper config check, LED should be off in this case so trun it off
+    ledState = LOW;
+    digitalWrite(LEDpin, ledState);  
+    previousMillis = currentMillis; //reset the timer to begin timing again we dont want to start timgin until the start configuration is set
+  }
+
   if (flag == 1 && buttonState == LOW) { //with LED illuminated, wait for user to latch the button to indicate compliance
     Serial.print("  buttonState: ");
     Serial.println(buttonState);
