@@ -11,7 +11,9 @@ int flag = 0;
 
 int ledState = LOW;
 unsigned long previousMillis = 0;
-const long interval = 300000; // interval at which to turn on LED (milliseconds)
+unsigned long previousFlashMillis = 0;
+const long interval = 10000; // interval at which to turn on LED (milliseconds)
+const long flashInterval = 150;
 
 void setup() {
   Serial.begin(9600);
@@ -25,7 +27,7 @@ void loop() {
   unsigned long currentMillis = millis(); //check the time
   buttonState = digitalRead(buttonPin); //check the button
 
-  if (flag == 0 && currentMillis - previousMillis >= interval) { //once time is up, turn on the LED, advance to next code block (flag 1)
+  if (flag == 0 && buttonState == HIGH && currentMillis - previousMillis >= interval) { //once time is up, turn on the LED, advance to next code block (flag 1)
     digitalWrite(LEDpin, HIGH);
     Serial.println("LED ON");
     flag = 1;
@@ -33,17 +35,31 @@ void loop() {
     Serial.println(flag);
   }
 
+  if (flag == 0 && buttonState == LOW) {  //chck case of incorrect start configuration (button in at start with flag == 0)
+    Serial.println("Button IN.... unlatch to begin");
+    previousMillis = currentMillis; //reset the timer to begin timing again we dont want to start timgin until the start configuration is set
+    if (currentMillis - previousFlashMillis >= flashInterval) {
+      previousFlashMillis = currentMillis;
+      if (ledState == LOW) {
+        ledState = HIGH;
+      } else {
+        ledState = LOW;
+      }
+      digitalWrite(LEDpin, ledState);
+    }
+  }
+
   if (flag == 1 && buttonState == LOW) { //with LED illuminated, wait for user to latch the button to indicate compliance
     Serial.print("  buttonState: ");
     Serial.println(buttonState);
     digitalWrite(LEDpin, LOW);   //once user presses button, turn off LED
     Serial.println("LED OFF");
-    delay(20000); //eye relief time (20 seconds)   
+    delay(5000); //eye relief time (20 seconds)
     digitalWrite(LEDpin, HIGH); //LED comes back on to indicate end of eye strain break
     Serial.println("LED ON");
     flag = 2; //advance to next code block (flag 2)
     Serial.print("flag: ");
-    Serial.println(flag); 
+    Serial.println(flag);
   }
 
   if (flag == 2 && buttonState == HIGH) { //wait for user to acknowledge end of eye relief break by pressing button again
