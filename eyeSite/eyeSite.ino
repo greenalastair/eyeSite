@@ -1,5 +1,5 @@
 /*eyeSight (By Alastair Green 2022)
- 
+
   OVERVIEW
   Save your eyes from screen fatigue following 20/20/20 rule.
   LED that turns on after 20 mins, press a button, it flashes for 20 seconds
@@ -12,7 +12,7 @@
   C to D7
   NO to GND
   NC is unconnected
-  
+
 */
 
 int buttonState = 1; //NOTE ON buttonState: pushed in is 0 (LOW) out is 1 (HIGH)
@@ -32,6 +32,9 @@ void setup() {
   Serial.println("eyeSight timer starting");
   pinMode(buttonPin, INPUT_PULLUP);
   pinMode(LEDpin, OUTPUT);
+  digitalWrite(LEDpin, HIGH);
+  delay(1000);
+  digitalWrite(LEDpin, LOW);
 }
 
 void loop() {
@@ -63,7 +66,7 @@ void loop() {
 
   if (flag == 0 && buttonState == HIGH && ledState == HIGH) { //improper config check, LED should be off in this case so trun it off
     ledState = LOW;
-    digitalWrite(LEDpin, ledState);  
+    digitalWrite(LEDpin, ledState);
     previousMillis = currentMillis; //reset the timer to begin timing again we dont want to start timgin until the start configuration is set
   }
 
