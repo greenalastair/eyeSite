@@ -51,12 +51,12 @@ void loop() {
   }
 
   if (flag == 0 && buttonState == LOW) {  //chck case of incorrect start configuration (button in at start with flag == 0)
-    Serial.println("Button IN.... unlatch to begin");
     previousMillis = currentMillis; //reset the timer to begin timing again we dont want to start timgin until the start configuration is set
     if (currentMillis - previousFlashMillis >= flashInterval) {
       previousFlashMillis = currentMillis;
       if (ledState == LOW) {
         ledState = HIGH;
+        Serial.println("Button IN.... unlatch to begin");
       } else {
         ledState = LOW;
       }
