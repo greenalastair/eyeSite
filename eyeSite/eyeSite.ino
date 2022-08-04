@@ -29,7 +29,7 @@ const long eyeReliefTime = 2500; //time to rest eyes from screen (20000 ms norma
 
 void setup() {
   Serial.begin(9600);
-  Serial.println("eyeSight timer starting");
+  Serial.println("eyeSight timer starting: mode = 20min, 20sec");
   pinMode(buttonPin, INPUT_PULLUP);
   pinMode(LEDpin, OUTPUT);
   digitalWrite(LEDpin, HIGH);
