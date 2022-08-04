@@ -16,16 +16,16 @@
 */
 
 int buttonState = 1; //NOTE ON buttonState: pushed in is 0 (LOW) out is 1 (HIGH)
-int buttonPin = 7;
-int LEDpin = 13;
-int flag = 0;
+int buttonPin = 7; //button "C" connected here
+int LEDpin = 13; //LED + connected here
+int ledState = LOW; //initialise with LED off
+int flag = 0; //flag used to move through code blocks
 
-int ledState = LOW;
-unsigned long previousMillis = 0;
-unsigned long previousFlashMillis = 0;
-const long interval = 5000; // interval at which to turn on LED (milliseconds)
-const long flashInterval = 250;
-int eyeReliefTime = 2000; //time to rest eyes from screen (20 seconds normally)
+unsigned long previousMillis = 0; //store previous rest cycle time
+unsigned long previousFlashMillis = 0; //used to flash the LED 
+const long interval = 1200000; // time between eye rest perisods (20 minutes = 1200000 ms)
+const long flashInterval = 250; //flash duty cycle
+const long eyeReliefTime = 20000; //time to rest eyes from screen (20 seconds normally)
 
 void setup() {
   Serial.begin(9600);
