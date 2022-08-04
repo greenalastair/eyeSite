@@ -22,10 +22,10 @@ int ledState = LOW; //initialise with LED off
 int flag = 0; //flag used to move through code blocks
 
 unsigned long previousMillis = 0; //store previous rest cycle time
-unsigned long previousFlashMillis = 0; //used to flash the LED 
-const long interval = 1200000; // time between eye rest perisods (20 minutes = 1200000 ms)
+unsigned long previousFlashMillis = 0; //used to flash the LED
+const long interval = 5000; // time between eye rest perisods (20 minutes = 1200000 ms)
 const long flashInterval = 250; //flash duty cycle
-const long eyeReliefTime = 20000; //time to rest eyes from screen (20 seconds normally)
+const long eyeReliefTime = 2500; //time to rest eyes from screen (20000 ms normally)
 
 void setup() {
   Serial.begin(9600);
