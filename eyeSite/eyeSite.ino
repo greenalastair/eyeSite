@@ -24,7 +24,7 @@ int flag = 0; //flag used to move through code blocks
 unsigned long previousMillis = 0; //store previous rest cycle time
 unsigned long previousFlashMillis = 0; //used to flash the LED
 const long interval = 1200000; // time between eye rest perisods (20 minutes = 1200000 ms)
-const long flashInterval = 250; //flash duty cycle
+const long flashInterval = 1000; //flash duty cycle
 const long eyeReliefTime = 20000; //time to rest eyes from screen (20000 ms normally)
 
 void setup() {
