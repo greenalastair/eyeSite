@@ -1,6 +1,11 @@
 eyeSight
 
-Save your eyes from screen fatigue flowwing 20/20/20 rule
+Save your eyes from screen fatigue following the 20/20/20 rule.
 LED that turns on after 20 mins, press a button, it flashes for 20 seconds (time you should be looking away to 20 ft distance) then turns off (back to work).
 
-hold to screen top with flexures like this: https://www.printables.com/model/109528-table-hook-with-flexible-fixation#preview
+To 3D print the box visit:
+
+BOM
+- Arduino Nano
+- LED pushbutton: https://www.amazon.com/gp/product/B01N2T2LJI/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1
+- M2 or similar screws or bolts
