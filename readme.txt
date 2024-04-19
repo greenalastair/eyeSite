@@ -17,3 +17,5 @@ Wiring
   C to D7
   NO to GND
   NC is unconnected
+
+Images
