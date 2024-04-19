@@ -3,7 +3,7 @@ eyeSight
 Save your eyes from screen fatigue following the 20/20/20 rule.
 LED that turns on after 20 mins, press a button, it flashes for 20 seconds (time you should be looking away to 20 ft distance) then turns off (back to work).
 
-To 3D print the box visit:
+To 3D print the box visit: https://www.printables.com/model/848883-eyesite
 
 BOM
 - Arduino Nano
